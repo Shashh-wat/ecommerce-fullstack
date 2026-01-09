@@ -181,10 +181,21 @@ export function Chatbot() {
                       : 'bg-muted text-foreground'
                     }`}
                 >
-                  <p className="text-sm">{message.text}</p>
+                  <p className="text-sm border-none whitespace-pre-wrap">{message.text}</p>
                 </div>
               </div>
             ))}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-muted text-foreground p-3 rounded-lg">
+                  <div className="flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                    <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                    <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce"></span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Quick Replies */}
