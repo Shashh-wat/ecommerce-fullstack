@@ -166,25 +166,7 @@ def health_check():
     """Health check endpoint for Cloud Run"""
     return {"status": "ok", "service": "ecommerce-backend-supabase"}
 
-# Serve the frontend index.html for any unmatched routes (SPA support)
-@app.get("/{full_path:path}")
-async def serve_frontend(full_path: str):
-    # API routes should have been caught above, so this is for frontend routes
-    if full_path.startswith("api") or full_path.startswith("auth") or full_path.startswith("catalog"):
-        raise HTTPException(status_code=404, detail="Not Found")
-    
-    # Check if a specific file exists in dist (e.g. favicon.ico)
-    # IMPORTANT: Use os.path.isfile to avoid trying to serve a directory as a file
-    file_path = f"dist/{full_path}"
-    if os.path.isfile(file_path):
-        return FileResponse(file_path)
-        
-    # Otherwise return index.html for SPA routing
-    index_path = "dist/index.html"
-    if os.path.isfile(index_path):
-        return FileResponse(index_path)
-    
-    return {"message": "Frontend not found. Run 'npm run build' and ensure 'dist' folder exists."}
+# serve_frontend moved to end of file
 
 # ============ IN-MEMORY DATA STORES (UNCHANGED) ============
 
@@ -940,3 +922,24 @@ async def startup_event():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)
+
+# Serve the frontend index.html for any unmatched routes (SPA support)
+# MOVED TO END to prevent capturing API routes like /catalog/search
+@app.get("/{full_path:path}")
+async def serve_frontend(full_path: str):
+    # API routes should have been caught above, so this is for frontend routes
+    if full_path.startswith("api") or full_path.startswith("auth") or full_path.startswith("catalog"):
+        raise HTTPException(status_code=404, detail="Not Found")
+    
+    # Check if a specific file exists in dist (e.g. favicon.ico)
+    # IMPORTANT: Use os.path.isfile to avoid trying to serve a directory as a file
+    file_path = f"dist/{full_path}"
+    if os.path.isfile(file_path):
+        return FileResponse(file_path)
+        
+    # Otherwise return index.html for SPA routing
+    index_path = "dist/index.html"
+    if os.path.isfile(index_path):
+        return FileResponse(index_path)
+    
+    return {"message": "Frontend not found. Run 'npm run build' and ensure 'dist' folder exists."}
