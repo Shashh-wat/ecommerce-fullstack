@@ -134,9 +134,12 @@ from fastapi.responses import FileResponse
 import os
 
 # Mount the static directory (frontend build)
+# Mount the static directory (frontend build)
 # We'll expect the 'dist' folder to be in the same directory for deployment
-if os.path.exists("dist"):
+if os.path.isdir("dist"):
     app.mount("/assets", StaticFiles(directory="dist/assets"), name="assets")
+else:
+    print("⚠️  'dist' directory not found or is not a directory. Frontend assets will not be served.")
 
 @app.get("/health")
 def health_check():
