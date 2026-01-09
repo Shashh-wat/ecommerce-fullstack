@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Platform - Choose Your Role</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .card-features {
+            text-align: left;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .card-features li {
+            list-style: none;
+            padding: 8px 0;
+            color: #555;
+        }
+
+        .card-features li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .btn-buyer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-buyer:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-vendor {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-vendor:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .demo-section h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .demo-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .demo-credentials {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: left;
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+
+        .demo-credentials div {
+            margin: 5px 0;
+        }
+
+        .demo-credentials strong {
+            color: #fff;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .info-box p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .card h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🛍️ E-Commerce Platform</h1>
+            <p>Choose your role to get started</p>
+        </div>
+
+        <!-- Role Selection Cards -->
+        <div class="cards-grid">
+            <!-- Buyer Card -->
+            <div class="card">
+                <div class="card-icon">👤</div>
+                <h2>Buyer</h2>
+                <p>Shop naturally with AI-powered search and recommendations</p>
+                <div class="card-features">
+                    <ul>
+                        <li>Natural language search</li>
+                        <li>Smart cart management</li>
+                        <li>Quick checkout</li>
+                        <li>Order tracking</li>
+                        <li>AI Chat interface</li>
+                    </ul>
+                </div>
+                <button class="btn btn-buyer" onclick="goToBuyer()">Shop as Buyer</button>
+            </div>
+
+            <!-- Vendor Card -->
+            <div class="card">
+                <div class="card-icon">🏪</div>
+                <h2>Vendor</h2>
+                <p>Manage your store, inventory, and sales in one place</p>
+                <div class="card-features">
+                    <ul>
+                        <li>Sales dashboard</li>
+                        <li>Order management</li>
+                        <li>Inventory tracking</li>
+                        <li>Analytics & reports</li>
+                        <li>Vendor profile</li>
+                    </ul>
+                </div>
+                <button class="btn btn-vendor" onclick="goToVendor()">Manage as Vendor</button>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            <h3>🚀 Getting Started</h3>
+            <p>
+                <strong>Buyers:</strong> Click "Shop as Buyer" to start shopping with our AI-powered interface.
+                No login required for initial browsing. <br><br>
+                <strong>Vendors:</strong> Click "Manage as Vendor" to register your store, manage inventory, and track sales.
+            </p>
+        </div>
+
+        <!-- Demo Section -->
+        <div class="demo-section">
+            <h3>🧪 Demo Credentials for Testing</h3>
+            <p>Use these accounts to test the platform:</p>
+            
+            <div class="demo-credentials">
+                <strong>👤 Buyer Demo Account</strong>
+                <div><strong>Email:</strong> buyer@demo.com</div>
+                <div><strong>Password:</strong> DemoPass123!</div>
+            </div>
+
+            <div class="demo-credentials" style="margin-top: 10px;">
+                <strong>🏪 Vendor Demo Account</strong>
+                <div><strong>Email:</strong> vendor@demo.com</div>
+                <div><strong>Password:</strong> DemoPass123!</div>
+            </div>
+
+            <p style="margin-top: 15px; font-size: 12px;">
+                💡 <strong>Tip:</strong> If accounts don't exist yet, register with these credentials and they'll be created automatically. Then you can login with the same credentials anytime!
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 E-Commerce Platform. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigate to buyer login
+        function goToBuyer() {
+            window.location.href = './buyer-login.html';
+        }
+
+        // Navigate to vendor dashboard
+        function goToVendor() {
+            window.location.href = './vendor-dashboard.html';
+        }
+
+        // Keyboard shortcuts (optional)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'b' || e.key === 'B') {
+                goToBuyer();
+            }
+            if (e.key === 'v' || e.key === 'V') {
+                goToVendor();
+            }
+        });
+    </script>
+</body>
+</html>

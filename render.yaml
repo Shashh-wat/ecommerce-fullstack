@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ecommerce-fullstack
+    env: docker
+    region: oregon # or frankfurt, etc.
+    plan: free
+    branch: main
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+    autoDeploy: true
