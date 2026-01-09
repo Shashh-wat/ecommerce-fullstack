@@ -154,12 +154,15 @@ async def serve_frontend(full_path: str):
         raise HTTPException(status_code=404, detail="Not Found")
     
     # Check if a specific file exists in dist (e.g. favicon.ico)
-    if os.path.exists(f"dist/{full_path}"):
-        return FileResponse(f"dist/{full_path}")
+    # IMPORTANT: Use os.path.isfile to avoid trying to serve a directory as a file
+    file_path = f"dist/{full_path}"
+    if os.path.isfile(file_path):
+        return FileResponse(file_path)
         
-    # Otherwise return index.html
-    if os.path.exists("dist/index.html"):
-        return FileResponse("dist/index.html")
+    # Otherwise return index.html for SPA routing
+    index_path = "dist/index.html"
+    if os.path.isfile(index_path):
+        return FileResponse(index_path)
     
     return {"message": "Frontend not found. Run 'npm run build' and ensure 'dist' folder exists."}
 
