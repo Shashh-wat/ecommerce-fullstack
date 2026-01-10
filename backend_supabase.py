@@ -468,7 +468,154 @@ def api_create_order_alias(req: OrderRequest, db: Session = Depends(get_db)):
 
 # ... (Auth endpoints skipped, but should be here)
 
-# ============ FRONTEND SERVING (MUST BE LAST) ============
+# ============ LLM ORCHESTRATION (THE "BRAIN") ============
+from anthropic import Anthropic
+
+# Initialize Anthropic Client
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY) if ANTHROPIC_API_KEY else None
+
+class ChatRequest(BaseModel):
+    message: str
+    user_id: Optional[str] = "anon"
+    context: Optional[dict] = {}
+
+@app.post("/chat")
+def chat_endpoint(req: ChatRequest):
+    """
+    Agentic Chat Endpoint:
+    User -> LLM -> MCP Tools -> DB -> LLM -> User
+    """
+    if not anthropic_client:
+        # Fallback if no API key (Simulated AI)
+        print("⚠️ No Anthropic API Key found. Using rule-based fallback.")
+        return simulated_agent(req.message)
+
+    print(f"🤖 Agent received: {req.message}")
+
+    # 1. Define Tools for the LLM (Reflection of our MCP Tools)
+    tools = [
+        {
+            "name": "search_products",
+            "description": "Search for products in the catalog based on name, price, or location.",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "Product name or keyword"},
+                    "max_price": {"type": "number", "description": "Maximum price capability"},
+                    "location": {"type": "string", "description": "Seller location filter (e.g. Civil Lines)"}
+                }
+            }
+        },
+        {
+            "name": "create_new_cart",
+            "description": "Create a new shopping cart for the user.",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {"type": "string"}
+                },
+                "required": ["user_id"]
+            }
+        },
+        {
+            "name": "add_product_to_cart",
+            "description": "Add a product to the cart. call search_products first to get ID.",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "cart_id": {"type": "string"},
+                    "product_id": {"type": "string"},
+                    "quantity": {"type": "integer"}
+                },
+                "required": ["cart_id", "product_id"]
+            }
+        }
+    ]
+
+    try:
+        # 2. Initial Call to LLM
+        messages = [{"role": "user", "content": req.message}]
+        
+        response = anthropic_client.messages.create(
+            model="claude-3-haiku-20240307",
+            max_tokens=1024,
+            tools=tools,
+            messages=messages,
+            system="You are a helpful E-commerce assistant for Kozhikode Reconnect. Use the available tools to help users find products and manage their cart. Always answer politely."
+        )
+
+        final_content = "I didn't understand that."
+        
+        # 3. Handle Tool Use
+        if response.stop_reason == "tool_use":
+            tool_use = next(block for block in response.content if block.type == "tool_use")
+            tool_name = tool_use.name
+            tool_input = tool_use.input
+            
+            print(f"🛠️ LLM decided to call: {tool_name} with {tool_input}")
+            
+            # 4. EXECUTE MCP TOOL (Directly calling Backend Logic)
+            tool_result = None
+            if tool_name == "search_products":
+                tool_result = core_search_catalog(
+                    q=tool_input.get("query"),
+                    max_price=tool_input.get("max_price"),
+                    location=tool_input.get("location")
+                )
+            elif tool_name == "create_new_cart":
+                tool_result = core_create_cart(tool_input.get("user_id", req.user_id))
+            elif tool_name == "add_product_to_cart":
+                tool_result = core_add_item(
+                    tool_input.get("cart_id", "current"), # Simplified
+                    tool_input.get("product_id"),
+                    tool_input.get("quantity", 1)
+                )
+
+            # 5. Feed Result back to LLM for final answer
+            messages.append({"role": "assistant", "content": response.content})
+            messages.append({
+                "role": "user",
+                "content": [
+                    {
+                        "type": "tool_result",
+                        "tool_use_id": tool_use.id,
+                        "content": str(tool_result)
+                    }
+                ]
+            })
+            
+            # Final generation
+            final_response = anthropic_client.messages.create(
+                model="claude-3-haiku-20240307",
+                max_tokens=1024,
+                tools=tools,
+                messages=messages
+            )
+            final_content = final_response.content[0].text
+        else:
+            final_content = response.content[0].text
+
+        return {"response": final_content}
+
+    except Exception as e:
+        print(f"❌ LLM Error: {e}")
+        return simulated_agent(req.message)
+
+def simulated_agent(message: str):
+    """Fallback rule-based response if LLM is unavailable"""
+    msg = message.lower()
+    if "hello" in msg:
+        return {"response": "Hello! I am your Kozhikode Reconnect assistant. You can ask me to search for products!"}
+    if "product" in msg or "buy" in msg or "search" in msg:
+        # Trigger explicit search
+        items = core_search_catalog(q=msg.replace("search", "").replace("products", "").strip())
+        if items:
+            names = ", ".join([i["name"] for i in items[:3]])
+            return {"response": f"I found some products for you: {names}. Would you like to add any to your cart?"}
+        return {"response": "I couldn't find any products matching that description."}
+    return {"response": "I am currently in offline mode. Please ask about products!"}
+
 
 if os.path.isdir("dist"):
     app.mount("/assets", StaticFiles(directory="dist/assets"), name="assets")
