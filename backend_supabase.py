@@ -234,8 +234,11 @@ def _call_payment_service(order_id, amount):
 
 def core_search_catalog(q: Optional[str] = None, size: Optional[str] = None, max_price: Optional[float] = None, location: Optional[str] = None, quantity: Optional[int] = None):
     try:
-        if supabase:
-            response = supabase.table("products").select("*").execute()
+        # Check if global supabase client is initialized
+        is_supabase_connected = 'supabase' in globals() and globals()['supabase'] is not None
+        
+        if is_supabase_connected:
+            response = globals()['supabase'].table("products").select("*").execute()
             results = response.data if response.data else []
         else:
             results = PRODUCTS.copy()
