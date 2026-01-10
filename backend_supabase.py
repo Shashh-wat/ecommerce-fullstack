@@ -47,26 +47,35 @@ try:
     )
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 except Exception as e:
-    print(f"⚠️  Database connection failed: {e}")
+    print(f"⚠️  Database connection failed (Non-Fatal): {e}")
+    # We continue without DB, using in-memory fallbacks
     engine = None
     SessionLocal = None
 
 Base = declarative_base()
 
-from supabase import create_client, Client
+# ... (Supabase client setup)
 
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://your-project.supabase.co")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY", "your-anon-key")
+# ============ FASTAPI SETUP ============
 
-try:
-    print(f"---- DEBUG INFO ----")
-    supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-    print("✅ Supabase client created")
-except Exception as e:
-    print(f"❌ Supabase connection failed: {e}")
-    supabase = None
+app = FastAPI(title="E-Commerce Multi-Vendor Platform + MCP")
 
-# ============ SQLALCHEMY MODELS ============
+# Fix for Render Health Check (HEAD method) and Root Path
+@app.get("/")
+@app.head("/")
+async def root():
+    # Attempt to serve index.html if it exists
+    if os.path.isfile("dist/index.html"):
+        return FileResponse("dist/index.html")
+    return {"status": "ok", "message": "Backend running. Frontend not found in /dist."}
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class UserModel(Base):
     __tablename__ = "users"
