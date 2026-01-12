@@ -39,36 +39,11 @@ from sqlalchemy.pool import StaticPool
 # Database configuration
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/ecommerce")
 
-# FORCE IPv4 FIX: Validate and resolve hostname to IP to avoid IPv6 issues on Render
-import socket
-from urllib.parse import urlparse, urlunparse
-
 try:
-    if "supabase.co" in DATABASE_URL:
-        print("🔧 Applying IPv4 DNS Fix for Supabase...")
-        parsed = urlparse(DATABASE_URL)
-        hostname = parsed.hostname
-        if hostname:
-            # Resolve to IPv4 address
-            ip_address = socket.gethostbyname(hostname)
-            print(f"   Resolved {hostname} -> {ip_address}")
-            # Reconstruct URL with IP
-            new_netloc = parsed.netloc.replace(hostname, ip_address)
-            parsed = parsed._replace(netloc=new_netloc)
-            DATABASE_URL = urlunparse(parsed)
-            print("✅ DNS Fix Applied: Using explicit IPv4 address")
-            
     engine = create_engine(
         DATABASE_URL,
         poolclass=StaticPool if "sqlite" in DATABASE_URL else None,
-        echo=False,
-        # Add connection timeout and keepalives
-        connect_args={
-            "keepalives": 1,
-            "keepalives_idle": 30,
-            "keepalives_interval": 10,
-            "keepalives_count": 5,
-        }
+        echo=False
     )
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 except Exception as e:
