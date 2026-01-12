@@ -503,6 +503,10 @@ from anthropic import Anthropic
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY) if ANTHROPIC_API_KEY else None
 
+# In-Memory State Management (For Session Persistence)
+CHAT_HISTORY = {} # Key: user_id, Value: List[Message]
+USER_CONTEXT = {} # Key: user_id, Value: {"cart_id": str, "last_search": list}
+
 class ChatRequest(BaseModel):
     message: str
     user_id: Optional[str] = "anon"
@@ -511,98 +515,167 @@ class ChatRequest(BaseModel):
 @app.post("/chat")
 def chat_endpoint(req: ChatRequest):
     """
-    Agentic Chat Endpoint:
-    User -> LLM -> MCP Tools -> DB -> LLM -> User
+    Agentic Chat Endpoint (Stateful):
+    User -> LLM -> MCP Tools -> User
     """
     if not anthropic_client:
-        # Fallback if no API key (Simulated AI)
-        print("⚠️ No Anthropic API Key found. Using rule-based fallback.")
         return simulated_agent(req.message)
 
-    print(f"🤖 Agent received: {req.message}")
+    user_id = req.user_id
+    print(f"🤖 Agent received from {user_id}: {req.message}")
 
-    # 1. Define Tools for the LLM (Reflection of our MCP Tools)
+    # 1. Initialize Context
+    if user_id not in CHAT_HISTORY: CHAT_HISTORY[user_id] = []
+    if user_id not in USER_CONTEXT: USER_CONTEXT[user_id] = {"cart_id": None, "last_search": []}
+    
+    context = USER_CONTEXT[user_id]
+    history = CHAT_HISTORY[user_id]
+    
+    # Prune history if too long
+    if len(history) > 20: history = history[-20:]
+
+    # 2. Construct System Prompt with Context
+    cart_info = f"Current Cart ID: {context['cart_id']}" if context['cart_id'] else "No active cart. Create one if needed."
+    
+    # Format last search results for LLM references
+    search_context = ""
+    if context['last_search']:
+        items_str = "\n".join([f"- ID: {p['id']}, Name: {p['name']}, Price: {p['price']}" for p in context['last_search'][:5]])
+        search_context = f"\nRECENT SEARCH RESULTS (User might refer to these as 'the first one', 'that t-shirt', etc):\n{items_str}"
+
+    system_prompt = (
+        "You are a helpful E-commerce assistant for Kozhikode Reconnect. "
+        "Your goal is to help users find products, manage their cart, and place orders. "
+        f"{cart_info} "
+        f"{search_context} "
+        "\nRULES:\n"
+        "- If user asks to 'add to cart' and you have a Cart ID, use it. If not, create one first.\n"
+        "- If user refers to a product vaguely ('add it'), check the Recent Search Results.\n"
+        "- Always confirm actions politely."
+    )
+
+    # 3. Define Tools
     tools = [
         {
             "name": "search_products",
-            "description": "Search for products in the catalog based on name, price, or location.",
+            "description": "Search for products. Returns list of items.",
             "input_schema": {
                 "type": "object",
                 "properties": {
-                    "query": {"type": "string", "description": "Product name or keyword"},
-                    "max_price": {"type": "number", "description": "Maximum price capability"},
-                    "location": {"type": "string", "description": "Seller location filter (e.g. Civil Lines)"}
+                    "query": {"type": "string", "description": "Keywords"},
+                    "max_price": {"type": "number"},
+                    "location": {"type": "string"}
                 }
             }
         },
         {
-            "name": "create_new_cart",
-            "description": "Create a new shopping cart for the user.",
-            "input_schema": {
-                "type": "object",
-                "properties": {
-                    "user_id": {"type": "string"}
-                },
-                "required": ["user_id"]
-            }
+            "name": "create_cart",
+            "description": "Create a new shopping cart. Returns cart info.",
+            "input_schema": {"type": "object", "properties": {}}
         },
         {
-            "name": "add_product_to_cart",
-            "description": "Add a product to the cart. call search_products first to get ID.",
+            "name": "get_my_cart",
+            "description": "Get current cart details.",
+            "input_schema": {"type": "object", "properties": {}}
+        },
+        {
+            "name": "add_to_cart",
+            "description": "Add product to cart.",
             "input_schema": {
                 "type": "object",
                 "properties": {
-                    "cart_id": {"type": "string"},
                     "product_id": {"type": "string"},
                     "quantity": {"type": "integer"}
                 },
-                "required": ["cart_id", "product_id"]
+                "required": ["product_id"]
+            }
+        },
+        {
+            "name": "place_order",
+            "description": "Checkout and place order from current cart.",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "delivery_slot": {"type": "string"}
+                }
             }
         }
     ]
 
     try:
-        # 2. Initial Call to LLM
-        messages = [{"role": "user", "content": req.message}]
+        # 4. Prepare Messages
+        current_messages = history.copy()
+        current_messages.append({"role": "user", "content": req.message})
         
+        # 5. First LLM Call
         response = anthropic_client.messages.create(
             model="claude-3-haiku-20240307",
             max_tokens=1024,
             tools=tools,
-            messages=messages,
-            system="You are a helpful E-commerce assistant for Kozhikode Reconnect. Use the available tools to help users find products and manage their cart. Always answer politely."
+            messages=current_messages,
+            system=system_prompt
         )
-
-        final_content = "I didn't understand that."
         
-        # 3. Handle Tool Use
+        final_content = "I didn't understand."
+
+        # 6. Handle Tool Use LOOP
         if response.stop_reason == "tool_use":
             tool_use = next(block for block in response.content if block.type == "tool_use")
             tool_name = tool_use.name
             tool_input = tool_use.input
             
-            print(f"🛠️ LLM decided to call: {tool_name} with {tool_input}")
+            print(f"🛠️ Tool Call: {tool_name} {tool_input}")
             
-            # 4. EXECUTE MCP TOOL (Directly calling Backend Logic)
-            tool_result = None
+            tool_result = "Error executing tool."
+            
+            # --- EXECUTION ---
             if tool_name == "search_products":
-                tool_result = core_search_catalog(
+                items = core_search_catalog(
                     q=tool_input.get("query"),
                     max_price=tool_input.get("max_price"),
                     location=tool_input.get("location")
                 )
-            elif tool_name == "create_new_cart":
-                tool_result = core_create_cart(tool_input.get("user_id", req.user_id))
-            elif tool_name == "add_product_to_cart":
-                tool_result = core_add_item(
-                    tool_input.get("cart_id", "current"), # Simplified
-                    tool_input.get("product_id"),
-                    tool_input.get("quantity", 1)
-                )
+                tool_result = str(items)
+                USER_CONTEXT[user_id]["last_search"] = items # Update Context
 
-            # 5. Feed Result back to LLM for final answer
-            messages.append({"role": "assistant", "content": response.content})
-            messages.append({
+            elif tool_name == "create_cart":
+                cart = core_create_cart(user_id)
+                tool_result = str(cart)
+                USER_CONTEXT[user_id]["cart_id"] = cart["cart_id"] # Update Context
+
+            elif tool_name == "get_my_cart":
+                cid = context.get("cart_id")
+                if not cid:
+                     tool_result = "No active cart found."
+                else:
+                     tool_result = str(api_get_cart(cid)) # Reuse existing function
+
+            elif tool_name == "add_to_cart":
+                cid = context.get("cart_id")
+                if not cid:
+                    # Auto-create cart if missing
+                    cart = core_create_cart(user_id)
+                    cid = cart["cart_id"]
+                    USER_CONTEXT[user_id]["cart_id"] = cid
+                
+                res = core_add_item(cid, tool_input.get("product_id"), tool_input.get("quantity", 1))
+                tool_result = "Item added." if res else "Product not found."
+
+            elif tool_name == "place_order":
+                cid = context.get("cart_id")
+                if not cid:
+                    tool_result = "No cart to checkout."
+                else:
+                    res = core_create_order(cid, user_id, tool_input.get("delivery_slot", "Standard"))
+                    if isinstance(res, dict):
+                         tool_result = f"Order Placed! ID: {res.get('order_id')}"
+                         USER_CONTEXT[user_id]["cart_id"] = None # Clear cart context
+                    else:
+                         tool_result = f"Order failed: {res}"
+
+            # 7. Feed Result back
+            current_messages.append({"role": "assistant", "content": response.content})
+            current_messages.append({
                 "role": "user",
                 "content": [
                     {
@@ -613,16 +686,25 @@ def chat_endpoint(req: ChatRequest):
                 ]
             })
             
-            # Final generation
+            # 8. Final Response
             final_response = anthropic_client.messages.create(
                 model="claude-3-haiku-20240307",
                 max_tokens=1024,
                 tools=tools,
-                messages=messages
+                messages=current_messages,
+                system=system_prompt  # Re-inject system prompt
             )
             final_content = final_response.content[0].text
+            
+            # Update History (Assistant + Tool Result + Final Answer)
+            # Simplification: We just append User Query and Final Answer to history to keep it clean,
+            # OR we append the whole chain. Appending whole chain is better for context.
+            CHAT_HISTORY[user_id] = current_messages + [{"role": "assistant", "content": final_content}]
+            
         else:
             final_content = response.content[0].text
+            CHAT_HISTORY[user_id].append({"role": "user", "content": req.message})
+            CHAT_HISTORY[user_id].append({"role": "assistant", "content": final_content})
 
         return {"response": final_content}
 
