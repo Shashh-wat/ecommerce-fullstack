@@ -629,49 +629,56 @@ def chat_endpoint(req: ChatRequest):
             tool_result = "Error executing tool."
             
             # --- EXECUTION ---
-            if tool_name == "search_products":
-                items = core_search_catalog(
-                    q=tool_input.get("query"),
-                    max_price=tool_input.get("max_price"),
-                    location=tool_input.get("location")
-                )
-                tool_result = str(items)
-                USER_CONTEXT[user_id]["last_search"] = items # Update Context
+            try:
+                if tool_name == "search_products":
+                    items = core_search_catalog(
+                        q=tool_input.get("query"),
+                        max_price=tool_input.get("max_price"),
+                        location=tool_input.get("location")
+                    )
+                    tool_result = str(items)
+                    USER_CONTEXT[user_id]["last_search"] = items # Update Context
 
-            elif tool_name == "create_cart":
-                cart = core_create_cart(user_id)
-                tool_result = str(cart)
-                USER_CONTEXT[user_id]["cart_id"] = cart["cart_id"] # Update Context
-
-            elif tool_name == "get_my_cart":
-                cid = context.get("cart_id")
-                if not cid:
-                     tool_result = "No active cart found."
-                else:
-                     tool_result = str(api_get_cart(cid)) # Reuse existing function
-
-            elif tool_name == "add_to_cart":
-                cid = context.get("cart_id")
-                if not cid:
-                    # Auto-create cart if missing
+                elif tool_name == "create_cart":
                     cart = core_create_cart(user_id)
-                    cid = cart["cart_id"]
-                    USER_CONTEXT[user_id]["cart_id"] = cid
-                
-                res = core_add_item(cid, tool_input.get("product_id"), tool_input.get("quantity", 1))
-                tool_result = "Item added." if res else "Product not found."
+                    tool_result = str(cart)
+                    USER_CONTEXT[user_id]["cart_id"] = cart["cart_id"] # Update Context
 
-            elif tool_name == "place_order":
-                cid = context.get("cart_id")
-                if not cid:
-                    tool_result = "No cart to checkout."
-                else:
-                    res = core_create_order(cid, user_id, tool_input.get("delivery_slot", "Standard"))
-                    if isinstance(res, dict):
-                         tool_result = f"Order Placed! ID: {res.get('order_id')}"
-                         USER_CONTEXT[user_id]["cart_id"] = None # Clear cart context
+                elif tool_name == "get_my_cart":
+                    cid = context.get("cart_id")
+                    if not cid:
+                         tool_result = "No active cart found."
                     else:
-                         tool_result = f"Order failed: {res}"
+                         # Safely check if cart exists before calling API (which raises exception)
+                         if cid in CARTS:
+                             tool_result = str(CARTS[cid])
+                         else:
+                             tool_result = "Cart expired or not found."
+
+                elif tool_name == "add_to_cart":
+                    cid = context.get("cart_id")
+                    if not cid:
+                        # Auto-create cart if missing
+                        cart = core_create_cart(user_id)
+                        cid = cart["cart_id"]
+                        USER_CONTEXT[user_id]["cart_id"] = cid
+                    
+                    res = core_add_item(cid, tool_input.get("product_id"), tool_input.get("quantity", 1))
+                    tool_result = "Item added." if res else "Product not found."
+
+                elif tool_name == "place_order":
+                    cid = context.get("cart_id")
+                    if not cid:
+                        tool_result = "No cart to checkout."
+                    else:
+                        res = core_create_order(cid, user_id, tool_input.get("delivery_slot", "Standard"))
+                        if isinstance(res, dict):
+                             tool_result = f"Order Placed! ID: {res.get('order_id')}"
+                             USER_CONTEXT[user_id]["cart_id"] = None # Clear cart context
+                        else:
+                             tool_result = f"Order failed: {res}"
+            except Exception as tool_err:
+                tool_result = f"Error executing tool {tool_name}: {tool_err}"
 
             # 7. Feed Result back
             current_messages.append({"role": "assistant", "content": response.content})
