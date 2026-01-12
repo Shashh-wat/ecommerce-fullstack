@@ -79,6 +79,8 @@ export function Chatbot() {
   };
 
   const [isTyping, setIsTyping] = useState(false);
+  // Generate a sesssion ID for this chat session
+  const [sessionId] = useState(() => 'user-' + Math.random().toString(36).substr(2, 9));
 
   const handleSendMessage = async (text: string) => {
     if (!text.trim()) return;
@@ -94,36 +96,26 @@ export function Chatbot() {
     setIsTyping(true);
 
     try {
-      let botResponse = t.responses.default;
-      const textLower = text.toLowerCase();
+      const API_URL = import.meta.env.VITE_API_URL || '';
 
-      // Check for keywords in both English and Malayalam
-      if (textLower.includes('marketplace') || textLower.includes('മാർക്കറ്റ്')) {
-        botResponse = t.responses.marketplace;
-      } else if (textLower.includes('seller') || textLower.includes('sell') || textLower.includes('വിൽപ്പന')) {
-        botResponse = t.responses.seller;
-      } else if (textLower.includes('contact') || textLower.includes('ബന്ധപ്പെട')) {
-        botResponse = t.responses.contact;
-      } else if (textLower.includes('product') || textLower.includes('item') || textLower.includes('available') || textLower.includes('ഉൽപ്പന്ന') || textLower.includes('what')) {
-        // Dynamic Product Search
-        try {
-          // Use the API URL from environment or empty string for relative path (proxy)
-          const API_URL = import.meta.env.VITE_API_URL || '';
-          const response = await fetch(`${API_URL}/catalog/search`);
-          const data = await response.json();
+      const response = await fetch(`${API_URL}/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: text,
+          user_id: sessionId,
+          context: { language }
+        }),
+      });
 
-          if (data.items && data.items.length > 0) {
-            const itemsList = data.items.slice(0, 4).map((item: any) => `• ${item.name} (₹${item.price})`).join('\n');
-            const moreCount = data.items.length > 4 ? `\n...and ${data.items.length - 4} more!` : '';
-            botResponse = `Here are some of our available products:\n${itemsList}${moreCount}\n\nYou can search for specific items like "halwa" or "chips" in the search bar!`;
-          } else {
-            botResponse = t.responses.product; // Fallback if no items found
-          }
-        } catch (error) {
-          console.error("Failed to fetch products for chat:", error);
-          botResponse = t.responses.product; // Fallback on error
-        }
+      if (!response.ok) {
+        throw new Error('API request failed');
       }
+
+      const data = await response.json();
+      const botResponse = data.response || t.responses.default;
 
       const botMessage: Message = {
         id: messages.length + 2,
@@ -131,6 +123,15 @@ export function Chatbot() {
         sender: 'bot',
       };
 
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Chat Error:', error);
+      // Fallback to local logic if API fails
+      const botMessage: Message = {
+        id: messages.length + 2,
+        text: t.responses.default,
+        sender: 'bot',
+      };
       setMessages((prev) => [...prev, botMessage]);
     } finally {
       setIsTyping(false);
@@ -177,8 +178,8 @@ export function Chatbot() {
               >
                 <div
                   className={`max-w-[80%] p-3 rounded-lg ${message.sender === 'user'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-foreground'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted text-foreground'
                     }`}
                 >
                   <p className="text-sm border-none whitespace-pre-wrap">{message.text}</p>
