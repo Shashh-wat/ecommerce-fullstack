@@ -47,22 +47,37 @@ except Exception:
     pass
 
 # Mount Local Image Vault
-os.makedirs("gaura_platform/mobile_stub/local_vault/images", exist_ok=True)
+# Reliable Directory Resolution
+def get_resource_path(relative_path):
+    """Checks both root-relative and local-relative paths for Docker compatibility."""
+    bases = [".", "telegram_ucp_project"]
+    for base in bases:
+        full_path = os.path.join(base, relative_path)
+        if os.path.exists(full_path):
+            return full_path
+    return relative_path # fallback
+
+# Mount images with path check
+vault_path = get_resource_path("gaura_platform/mobile_stub/local_vault/images")
+os.makedirs(vault_path, exist_ok=True)
 try:
-    app.mount("/product_images", StaticFiles(directory="gaura_platform/mobile_stub/local_vault/images"), name="product_images")
+    app.mount("/product_images", StaticFiles(directory=vault_path), name="product_images")
 except Exception:
     pass
 
-# Mount generated ad images
-try:
-    app.mount("/ad_images", StaticFiles(directory=AD_OUTPUT_DIR), name="ad_images")
-except Exception:
-    pass
+# Mount React static assets (JS/CSS)
+react_static = get_resource_path("gaura_platform/gaura_mobile_react/dist/assets")
+if os.path.exists(react_static):
+    app.mount("/assets", StaticFiles(directory=react_static), name="react_assets")
 
 @app.get("/", response_class=HTMLResponse)
 async def get_app():
-    with open("gaura_platform/gaura_mobile_react/dist/index.html", "r") as f:
-        return f.read()
+    index_path = get_resource_path("gaura_platform/gaura_mobile_react/dist/index.html")
+    try:
+        with open(index_path, "r") as f:
+            return f.read()
+    except FileNotFoundError:
+        return HTMLResponse("<h1>Gaura Platform: Frontend is still building...</h1><p>Please refresh in 60 seconds.</p>", status_code=503)
 
 # --- AUTH API ---
 @app.post("/api/signup")
