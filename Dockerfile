@@ -1,34 +1,40 @@
-# Base image
-FROM python:3.10-slim
+# --- STAGE 1: Build React Frontend ---
+FROM node:20-slim AS frontend-builder
+WORKDIR /build
 
-# Set working directory
+# Copy the react project
+COPY telegram_ucp_project/gaura_platform/gaura_mobile_react/package.json ./
+COPY telegram_ucp_project/gaura_platform/gaura_mobile_react/package-lock.json* ./
+RUN npm install
+
+COPY telegram_ucp_project/gaura_platform/gaura_mobile_react/ ./
+RUN npm run build
+
+# --- STAGE 2: Python Monolith ---
+FROM python:3.10-slim
 WORKDIR /app
 
-# Install system dependencies (needed for SQLite, generic builds, and debugging if necessary)
-RUN apt-get update && apt-get install -y gcc g++ libpq-dev && rm -rf /var/lib/apt/lists/*
+# Install system dependencies for psycopg2 and other tools
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    libpq-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install them primarily 
-COPY telegram_ucp_project/requirements.txt ./req1.txt
-COPY telegram_ucp_project/gaura_platform/requirements.txt ./req2.txt
+# Install Python dependencies
+COPY req1.txt req2.txt ./
 RUN pip install --no-cache-dir -r req1.txt && pip install --no-cache-dir -r req2.txt
-
-# Some core MCP or specific telethon/asyncio libraries in case they aren't fully listed
 RUN pip install "fastapi[all]" mcp telethon python-dotenv supabase google-generativeai openai httpx psycopg2-binary
 
-# Copy the entire codebase into the container
+# Copy the entire backend codebase
 COPY . .
 
-# Ensure python modules can resolve properly
-ENV PYTHONPATH="/app/telegram_ucp_project:/app/telegram_ucp_project/gaura_platform"
-ENV GRPC_DNS_RESOLVER="native"
+# Copy the built frontend from Stage 1 into the correct location for the server
+COPY --from=frontend-builder /build/dist ./telegram_ucp_project/gaura_platform/gaura_mobile_react/dist
 
-# Expose the single unified frontend port the cloud platform expects
-# (Some platforms pass the dynamically assigned port via $PORT)
-ENV HOST="0.0.0.0"
+# Expose the monolith port
 EXPOSE 8500
 
-# Give execute permissions to launcher
-RUN chmod +x launch_all.py
-
-# Boot sequence (Memory Optimized Monolith)
+# Boot sequence (RAM Optimized Monolith)
 CMD ["python", "monolith.py"]
