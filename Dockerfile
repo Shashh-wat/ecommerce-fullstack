@@ -1,46 +1,34 @@
-FROM python:3.11-slim
+# Base image
+FROM python:3.10-slim
 
+# Set working directory
 WORKDIR /app
 
-# Install Node.js for frontend build
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    build-essential \
-    libpq-dev \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
-    && rm -rf /var/lib/apt/lists/*
+# Install system dependencies (needed for SQLite, generic builds, and debugging if necessary)
+RUN apt-get update && apt-get install -y gcc g++ libpq-dev && rm -rf /var/lib/apt/lists/*
 
-# Copy backend requirements
-COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+# Copy requirements and install them primarily 
+COPY telegram_ucp_project/requirements.txt ./req1.txt
+COPY telegram_ucp_project/gaura_platform/requirements.txt ./req2.txt
+RUN pip install --no-cache-dir -r req1.txt && pip install --no-cache-dir -r req2.txt
 
-# Copy Frontend Code
-COPY ["Kozhikode Reconnect V1", "./frontend"]
-WORKDIR /app/frontend
+# Some core MCP or specific telethon/asyncio libraries in case they aren't fully listed
+RUN pip install "fastapi[all]" mcp telethon python-dotenv supabase google-generativeai openai httpx
 
-# Build Frontend
-# We use a dummy key for the build if not provided, but mostly these are needed at runtime or baked in 
-# if we use VITE_ prefix. We'll pass them as build args if strictly necessary, but usually VITE_ env vars 
-# are baked in at build time. Since we want runtime config, we might need a runtime env.js solution, 
-# but for now we'll assume we bake them in or defaults. 
-# ACTUAL STRATEGY: We will let the user pass them as build args or just use the defaults for now?
-# The user needs to provide keys. For the build to succeed, we just run it.
-RUN npm install
-RUN npm run build
+# Copy the entire codebase into the container
+COPY . .
 
-WORKDIR /app
+# Ensure python modules can resolve properly
+ENV PYTHONPATH="/app/telegram_ucp_project:/app/telegram_ucp_project/gaura_platform"
+ENV GRPC_DNS_RESOLVER="native"
 
-# Move dist to root
-RUN mv frontend/dist ./dist
+# Expose the single unified frontend port the cloud platform expects
+# (Some platforms pass the dynamically assigned port via $PORT)
+ENV HOST="0.0.0.0"
+EXPOSE 8500
 
-# Copy Backend Code
-COPY backend_supabase.py .
+# Give execute permissions to launcher
+RUN chmod +x launch_all.py
 
-# Expose port
-ENV PORT 8080
-EXPOSE 8080
-
-# Run the application
-CMD exec uvicorn backend_supabase:app --host 0.0.0.0 --port ${PORT}
+# Boot sequence
+CMD ["python", "launch_all.py"]

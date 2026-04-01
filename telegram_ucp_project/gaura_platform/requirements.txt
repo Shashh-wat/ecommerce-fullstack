@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+python-telegram-bot
+sqlalchemy
+httpx
+pydantic
+pydantic-settings
+google-generativeai
+python-dotenv
+supabase
+pytz
+telethon
+razorpay
+openai

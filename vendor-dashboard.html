@@ -594,6 +594,7 @@
                 <div class="nav-item" onclick="switchTab('orders')">📦 Orders Management</div>
                 <div class="nav-item" onclick="switchTab('inventory')">📋 Inventory</div>
                 <div class="nav-item" onclick="switchTab('analytics')">📈 Analytics</div>
+                <div class="nav-item" onclick="switchTab('aigen')">🎨 AI Generator</div>
             </div>
 
             <div class="sidebar-footer">
@@ -737,6 +738,48 @@
                         <div class="chart-card">
                             <div class="chart-title">Order Status Distribution</div>
                             <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Generator Tab -->
+                <div id="aigenTab" class="tab-content" style="display: none;">
+                    <div class="inventory-form" style="max-width: 600px; margin: 0 auto;">
+                        <div style="font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #333;">Generate Product Assets Using AI</div>
+                        <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Upload a raw image. Our AI will automatically analyze the image, generate product specs, and create beautiful stylized images for your catalog using Hugging Face!</p>
+                        
+                        <div id="aiSuccessMessage" class="success" style="display: none; background: #efe; border: 1px solid #cfc; color: #3c3; padding: 12px; border-radius: 8px; margin-bottom: 15px;"></div>
+                        <div id="aiErrorMessage" class="error-message"></div>
+
+                        <form id="aiGenForm">
+                            <div class="form-group">
+                                <label>Product Name (Optional - AI can detect)</label>
+                                <input type="text" id="aiProductName" placeholder="e.g. Leather Jacket">
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <input type="text" id="aiProductCategory" required placeholder="e.g. Clothing">
+                            </div>
+                            <div class="form-group">
+                                <label>Base Price (₹)</label>
+                                <input type="number" id="aiProductPrice" required placeholder="999">
+                            </div>
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" id="aiProductImage" required accept="image/*" style="border: 1px dashed #667eea; padding: 20px; text-align: center; cursor: pointer; background: #f8f9fa;">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="aiGenBtn">Analyze and Generate Images ✨</button>
+                        </form>
+
+                        <div id="aiResults" style="display: none; margin-top: 30px;">
+                            <h3 style="margin-bottom: 15px; color: #333;">Generated Catalog Assets:</h3>
+                            <div id="aiImageGallery" style="display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px;">
+                                <!-- Images will appear here -->
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <h4 style="color: #666; margin-bottom: 10px;">AI Extracted Specifications:</h4>
+                                <pre id="aiSpecsReport" style="background: #f5f5f5; padding: 15px; border-radius: 8px; font-size: 13px; white-space: pre-wrap; word-wrap: break-word;"></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -905,7 +948,8 @@
                 'overview': '📊 Dashboard Overview',
                 'orders': '📦 Orders Management',
                 'inventory': '📋 Inventory',
-                'analytics': '📈 Analytics'
+                'analytics': '📈 Analytics',
+                'aigen': '🎨 AI Asset Generator'
             };
             document.getElementById('pageTitle').textContent = titles[tabName];
 
@@ -1173,6 +1217,66 @@
             const option = e.target.options[e.target.selectedIndex];
             if (option.dataset.stock) {
                 document.getElementById('currentStock').value = option.dataset.stock;
+            }
+        });
+
+        // ============ AI GENERATOR FORM ============
+        document.getElementById('aiGenForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('aiGenBtn');
+            const errorDiv = document.getElementById('aiErrorMessage');
+            const successDiv = document.getElementById('aiSuccessMessage');
+            const resultsDiv = document.getElementById('aiResults');
+            
+            btn.disabled = true;
+            btn.textContent = 'Analyzing and Generating... This takes ~15 seconds ✨';
+            errorDiv.classList.remove('show');
+            successDiv.style.display = 'none';
+            resultsDiv.style.display = 'none';
+
+            try {
+                const formData = new FormData();
+                formData.append('name', document.getElementById('aiProductName').value || 'Unknown Product');
+                formData.append('category', document.getElementById('aiProductCategory').value);
+                formData.append('price', document.getElementById('aiProductPrice').value);
+                formData.append('image', document.getElementById('aiProductImage').files[0]);
+
+                const response = await fetch('http://localhost:8500/api/upload_product', {
+                    method: 'POST',
+                    body: formData // No Headers needed, browser sets multipart/form-data boundary
+                });
+
+                if (!response.ok) throw new Error(`Generation failed: ${response.status}`);
+
+                const data = await response.json();
+                
+                // Show success
+                successDiv.textContent = 'Product successfully processed and uploaded to the Unified Network!';
+                successDiv.style.display = 'block';
+
+                // Render Specs
+                document.getElementById('aiSpecsReport').textContent = JSON.stringify(data.specs, null, 2);
+
+                // Render Images
+                const gallery = document.getElementById('aiImageGallery');
+                gallery.innerHTML = '';
+                if (data.ad_images && data.ad_images.length > 0) {
+                    data.ad_images.forEach(imgUrl => {
+                        gallery.innerHTML += `<img src="http://localhost:8500${imgUrl}" style="height: 180px; width: 180px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">`;
+                    });
+                } else {
+                    gallery.innerHTML = '<p style="color: #666; font-style: italic;">No ad images were generated. (HF Token might be missing)</p>';
+                }
+                
+                resultsDiv.style.display = 'block';
+                document.getElementById('aiGenForm').reset();
+                
+            } catch (error) {
+                errorDiv.textContent = 'Error: ' + error.message;
+                errorDiv.classList.add('show');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Analyze and Generate Images ✨';
             }
         });
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaura AI | Edge-Commerce App</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div id="status-bar">
+        <span class="battery">98%</span>
+        <span class="signal">5G</span>
+    </div>
+
+    <main id="app-container">
+        <!-- Navigation Tabs -->
+        <nav id="top-nav">
+            <button id="tab-buyer" class="active">Discover</button>
+            <button id="tab-seller">My Store</button>
+        </nav>
+
+        <!-- Buyer View (Platform Index) -->
+        <section id="view-buyer" class="view">
+            <div class="search-container">
+                <input type="text" id="market-search" placeholder="Search Gaura Network...">
+                <div class="search-icon">🔍</div>
+            </div>
+            
+            <div id="product-feed" class="product-grid">
+                <!-- Data injected here -->
+                <div class="empty-state">Welcome to the Gaura Network. Start searching for verified items.</div>
+            </div>
+        </section>
+
+        <!-- Seller View (My Phone's Vault) -->
+        <section id="view-seller" class="view hidden">
+            <div class="seller-card glass">
+                <h3>Edge Compute Center</h3>
+                <p>Upload a product photo to let Gaura AI generate specs and marketing assets locally on your phone.</p>
+                
+                <form id="upload-form">
+                    <div class="input-group">
+                        <label>Product Name</label>
+                        <input type="text" name="name" required placeholder="e.g. Organic Almond Milk">
+                    </div>
+                    <div class="input-group">
+                        <label>Category</label>
+                        <input type="text" name="category" required placeholder="Grocery, Tech, etc.">
+                    </div>
+                    <div class="input-group">
+                        <label>Price ($)</label>
+                        <input type="number" step="0.01" name="price" required>
+                    </div>
+                    
+                    <div class="upload-zone" id="drop-zone">
+                        <span class="icon">📸</span>
+                        <p>Tap to upload Product Image</p>
+                        <input type="file" name="image" id="file-input" hidden accept="image/*">
+                    </div>
+
+                    <button type="submit" id="btn-process" class="premium-btn">
+                        <span class="sparkle">✨</span> Generate AI Specs
+                    </button>
+                </form>
+            </div>
+
+            <div id="processing-overlay" class="hidden">
+                <div class="vortex"></div>
+                <h4>Gaura AI is Processing...</h4>
+                <p>Generating reports & premium images on your device.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Relayed Details -->
+    <div id="modal-details" class="modal hidden">
+        <div class="modal-content glass">
+            <header>
+                <h2 id="modal-title">Product Details</h2>
+                <button class="close-btn">×</button>
+            </header>
+            <div class="modal-body" id="modal-body">
+                <!-- Relayed AI Data injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

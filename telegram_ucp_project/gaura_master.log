@@ -1,0 +1,1135 @@
+/Users/shashwatsingh/Documents/mcp/claude/telegram_ucp_project/gaura_platform/mobile_stub/node.py:8: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [57093]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8200 (Press CTRL+C to quit)
+INFO:     Started server process [57128]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8400 (Press CTRL+C to quit)
+/Users/shashwatsingh/Documents/mcp/claude/telegram_ucp_project/gaura_platform/mobile_stub/node.py:8: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+/Users/shashwatsingh/Documents/mcp/claude/telegram_ucp_project/gaura_platform/mobile_stub/node.py:8: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [57186]
+INFO:     Started server process [57187]
+INFO:     Waiting for application startup.
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9002 (Press CTRL+C to quit)
+INFO:     Uvicorn running on http://0.0.0.0:9001 (Press CTRL+C to quit)
+/Users/shashwatsingh/Documents/mcp/claude/telegram_ucp_project/gaura_platform/mobile_stub/node.py:8: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [57242]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8500 (Press CTRL+C to quit)
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51632 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51630 - "GET /api/my_sales HTTP/1.1" 200 OK
+✅ Hub: Supabase registry connected
+🗄️ [Hub] Initializing DB at: /Users/shashwatsingh/Documents/mcp/claude/telegram_ucp_project/hub_registry.db
+📝 [Hub] Signup attempt for: organic@gaura.ai
+INFO:     127.0.0.1:51634 - "POST /signup HTTP/1.1" 400 Bad Request
+🔑 [Hub] Login attempt for: organic@gaura.ai
+INFO:     127.0.0.1:51634 - "POST /login HTTP/1.1" 200 OK
+📝 [Hub] Signup attempt for: tech@gaura.ai
+INFO:     127.0.0.1:51634 - "POST /signup HTTP/1.1" 400 Bad Request
+🔑 [Hub] Login attempt for: tech@gaura.ai
+INFO:     127.0.0.1:51634 - "POST /login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "POST /register_node?node_id=phone_organic&callback_url=http%3A%2F%2Flocalhost%3A9001 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "POST /register_node?node_id=phone_tech&callback_url=http%3A%2F%2Flocalhost%3A9002 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "POST /publish_metadata HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "POST /publish_metadata HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51654 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51664 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51662 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51675 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51672 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51692 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51690 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51710 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51708 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51723 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51721 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51734 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51732 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51751 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51749 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51766 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51763 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51778 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51776 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51793 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51791 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51805 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51803 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51816 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51814 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51831 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51829 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51846 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51843 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51858 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51856 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51873 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51871 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51885 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51883 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51898 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51896 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51914 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51912 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51928 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51926 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51952 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51950 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51965 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51963 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51976 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51974 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:51986 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51984 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52001 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51999 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52015 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52013 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52026 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52024 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52040 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52038 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52052 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52050 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52069 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52067 - "GET /api/my_sales HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52072 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52072 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52072 - "GET /assets/index-497e92f1.js HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52093 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52091 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52105 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52103 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52121 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52119 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52140 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52138 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52152 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52150 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52165 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52163 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52179 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52177 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52197 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52195 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52210 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52208 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52218 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52216 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52227 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52225 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52231 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52229 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52237 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52235 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52243 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52241 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52249 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52247 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52254 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52252 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52259 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52257 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52263 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52261 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52267 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52265 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52271 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52269 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52275 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52273 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52279 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52277 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52283 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52281 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52287 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52285 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52291 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52289 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52299 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52297 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52303 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52301 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52310 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52308 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52315 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52313 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52319 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52317 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52323 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52321 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52327 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52325 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52331 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52329 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52335 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52333 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52339 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52337 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52343 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52341 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52347 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52345 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52351 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52349 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52365 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52363 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52371 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52369 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52375 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52373 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52379 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52377 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52383 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52381 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52396 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52394 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52435 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52433 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52594 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52592 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52696 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52694 - "GET /api/my_sales HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52739 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52739 - "GET /assets/index-497e92f1.js HTTP/1.1" 304 Not Modified
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52757 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52755 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52864 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52862 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:52936 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52934 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53017 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53015 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53044 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53042 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53078 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53076 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53169 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53167 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53270 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53268 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53336 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53334 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53428 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53425 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53540 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53536 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53641 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53639 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53750 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53748 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53821 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53819 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53853 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53849 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53906 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53903 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:53975 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53971 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54040 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54037 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54108 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54104 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54149 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54146 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54184 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54180 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54224 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "GET /api/my_sales HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54238 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54239 - "GET /assets/index-497e92f1.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54238 - "GET /assets/index-c77cdfc4.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54239 - "GET /vite.svg HTTP/1.1" 404 Not Found
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54256 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54254 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54291 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54288 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54388 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54384 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54436 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54433 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54475 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54471 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54573 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54571 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54693 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54690 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54802 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54800 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54859 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54855 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54916 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54914 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:54994 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54992 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55008 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55006 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55032 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55030 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55036 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55034 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55040 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55038 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55044 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55042 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55048 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55046 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55052 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55050 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55059 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55057 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55064 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55062 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55071 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55069 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55076 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55074 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55080 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55078 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55084 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55082 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55088 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55086 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55095 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55093 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55099 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55097 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55201 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55199 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55355 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55350 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55449 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55443 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55515 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55511 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55553 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55550 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55596 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55594 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55620 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55618 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55632 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55628 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55643 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55639 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55662 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55660 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55667 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55665 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55676 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55672 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55680 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55678 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55693 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55691 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55700 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55697 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55727 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55721 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55740 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55737 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55763 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55759 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55771 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55768 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55776 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55774 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55794 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55792 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55824 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55819 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55837 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55835 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55847 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55843 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55871 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55866 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55879 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55877 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55892 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55890 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55901 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55899 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55910 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55907 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55924 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55922 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55949 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55947 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55961 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55959 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55965 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55963 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:55987 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55981 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56018 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56014 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56031 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56027 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56044 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56042 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56055 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56072 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56067 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56090 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56084 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56104 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56102 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56122 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56116 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56134 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56129 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56150 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56145 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56162 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56157 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56189 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56183 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56205 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56200 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56219 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56213 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56236 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56231 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56251 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56245 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56279 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56274 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56303 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56297 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56316 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56311 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56334 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56328 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56358 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56353 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56374 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56368 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56392 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56387 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56412 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56406 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56427 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56422 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56449 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56447 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56460 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56458 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56472 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56470 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56476 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56474 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56587 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56585 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56606 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56602 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56677 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56674 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56699 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56697 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56725 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56723 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56742 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56737 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56781 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56775 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56806 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56801 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56872 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56870 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56941 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56936 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56958 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56956 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56970 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56968 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56983 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56981 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56993 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56991 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:56997 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56995 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57003 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57001 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57013 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57011 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57017 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57015 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57021 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57019 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57028 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57026 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57038 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57036 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57042 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57040 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57046 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57044 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57050 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57048 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57056 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57054 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57066 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57064 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57070 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57068 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57082 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57080 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57086 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57084 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57090 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57088 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57097 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57095 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57107 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57105 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57111 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57109 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57115 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57113 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57119 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57117 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57123 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57121 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57127 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57125 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57133 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57131 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57143 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57141 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57147 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57145 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57151 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57149 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57155 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57153 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57166 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57164 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57170 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57168 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57174 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57172 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57181 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57179 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57191 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57189 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57195 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57193 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57199 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57197 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57203 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57201 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57207 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57205 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57211 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57209 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57215 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57213 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57219 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57217 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57225 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57223 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57235 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57233 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57239 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57237 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57262 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57260 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57285 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57283 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57291 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57289 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57296 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57294 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57317 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57315 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57355 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57353 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57366 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57364 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57372 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57370 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57393 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57391 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57415 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57413 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57439 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57437 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57445 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57443 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57466 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57487 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57485 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57525 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57523 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57546 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57544 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57560 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57558 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57598 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57596 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57619 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57617 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57625 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57623 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57646 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57644 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57684 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57682 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57690 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57688 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57719 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57717 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57738 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57735 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57763 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57761 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57769 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57767 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57789 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57787 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57793 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57791 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57797 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57795 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57801 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57799 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57805 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57803 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57809 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57807 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57813 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57811 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57817 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57815 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57821 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57819 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57825 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57823 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57829 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57827 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57841 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57839 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57845 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57843 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57849 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57847 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57853 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57851 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57864 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57862 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57868 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57866 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57872 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57870 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57876 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57874 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57880 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57878 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57884 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57882 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57888 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57886 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57900 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57898 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57904 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57902 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57908 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57906 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57931 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57929 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57952 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57950 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57957 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57955 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:57962 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57960 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58000 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57998 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58006 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58004 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58012 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58010 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58048 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58046 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58071 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58069 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58085 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58083 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58106 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58104 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58110 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58108 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58131 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58129 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58162 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58160 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58166 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58164 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58170 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58168 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58174 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58172 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58185 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58183 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58206 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58204 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58220 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58218 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58321 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58319 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58325 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58323 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58363 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58361 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58384 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58382 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58390 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58388 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58411 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58409 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58425 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58423 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58429 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58427 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58433 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58431 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58464 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58462 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58485 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58483 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58506 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58504 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58608 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58606 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58673 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58671 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58739 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58737 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58753 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58751 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58763 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58761 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58875 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58873 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58899 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58897 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58923 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58917 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58945 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58941 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58969 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58965 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58978 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58976 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58991 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58989 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:58995 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58993 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:59004 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59002 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:59023 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59021 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:59044 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59038 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:59049 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59047 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:59061 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59057 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:59069 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59067 - "GET /api/my_sales HTTP/1.1" 200 OK
+📲 [Phone phone_organic] Received Relay Action: list_orders
+INFO:     127.0.0.1:59083 - "POST /execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59080 - "GET /api/my_sales HTTP/1.1" 200 OK

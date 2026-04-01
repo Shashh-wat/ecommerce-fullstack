@@ -1,0 +1,21 @@
+{
+  "product_name": "Product (test product)",
+  "category": "General",
+  "color": "mixed",
+  "key_features": [
+    "quality material",
+    "versatile use",
+    "modern design"
+  ],
+  "ad_prompts": [
+    "professional product photography of test product, isolated on pure white background, studio lighting, sharp focus, 4K commercial quality",
+    "lifestyle photo of test product in everyday use, natural lighting, warm tones, Instagram aesthetic, shallow depth of field",
+    "minimalist flat lay of test product, overhead aerial view, clean white background, editorial style, product marketing"
+  ],
+  "source_image": "test_product.jpg",
+  "ad_images": [
+    "./ad_output/studio_ad.jpg",
+    "./ad_output/lifestyle_ad.jpg",
+    "./ad_output/flatlay_ad.jpg"
+  ]
+}

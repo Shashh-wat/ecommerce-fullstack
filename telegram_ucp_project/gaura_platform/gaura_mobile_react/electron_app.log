@@ -1,0 +1,17 @@
+
+> GauraAI@1.0.0 electron:start
+> npm run build && electron --inspect=5858 ./
+
+
+> GauraAI@1.0.0 build
+> tsc && electron-rebuild
+
+- Searching dependency tree
+✔ Rebuild Complete
+Debugger listening on ws://127.0.0.1:5858/8268fb51-e917-4eab-8807-ac56fb728fd3
+For help, see: https://nodejs.org/en/docs/inspector
+in setupCapacitorElectronPlugins
+{}
+Skip checkForUpdates because application is not packed and dev update config is not forced
+checkForUpdatesAndNotify called, downloadPromise is null
+[73253:0222/190642.229296:ERROR:CONSOLE(1)] "Uncaught (in promise) TypeError: Failed to fetch", source: devtools://devtools/bundled/panels/elements/elements.js (1)

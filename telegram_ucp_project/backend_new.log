@@ -1,0 +1,23 @@
+/Users/shashwatsingh/Documents/mcp/claude/telegram_ucp_project/backend_unified.py:573: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [57137]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8182 (Press CTRL+C to quit)
+---- DEBUG INFO ----
+✅ Supabase client created
+⚠️  Error creating tables: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  role "postgres" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+✅ MCP mounted at /mcp
+INFO:     127.0.0.1:52057 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52057 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52059 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52059 - "GET /favicon.ico HTTP/1.1" 404 Not Found

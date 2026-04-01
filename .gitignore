@@ -3,6 +3,11 @@
 .env.local
 .DS_Store
 
+# Secret data and Session tokens
+*.db
+*_session/
+*_session
+
 # Python
 __pycache__/
 *.py[cod]

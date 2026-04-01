@@ -1,7 +1,9 @@
-import { useState } from 'react';
-import { MessageCircle, X, Send, Globe } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { MessageCircle, X, Send, Globe, Mic, MicOff } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { useAuth } from '../utils/AuthContext';
+import { GeminiLiveClient } from '../utils/geminiLiveClient';
 
 interface Message {
   id: number;
@@ -23,7 +25,23 @@ export function Chatbot() {
   ]);
   const [inputValue, setInputValue] = useState('');
 
-  const translations = {
+  const [isVoiceActive, setIsVoiceActive] = useState(false);
+  const voiceClientRef = useRef<GeminiLiveClient | null>(null);
+
+  const translations: Record<Language, {
+    chatTitle: string;
+    placeholder: string;
+    quickQuestions: string;
+    greeting: string;
+    quickReplies: string[];
+    responses: {
+      marketplace: string;
+      seller: string;
+      product: string;
+      contact: string;
+      default: string;
+    };
+  }> = {
     en: {
       chatTitle: "Chat with us",
       placeholder: "Type your message...",
@@ -31,8 +49,8 @@ export function Chatbot() {
       greeting: "Hello! Welcome to Kozhikode Reconnect. How can I help you today?",
       quickReplies: [
         "Tell me about the marketplace",
-        "How do I become a seller?",
-        "What products are available?",
+        "How do I become a seller",
+        "What products are available",
         "Contact information",
       ],
       responses: {
@@ -50,8 +68,8 @@ export function Chatbot() {
       greeting: "നമസ്കാരം! കോഴിക്കോട് റീകണക്ടിലേക്ക് സ്വാഗതം. ഞാൻ നിങ്ങളെ എങ്ങനെ സഹായിക്കും?",
       quickReplies: [
         "മാർക്കറ്റ്പ്ലേസിനെക്കുറിച്ച് പറയൂ",
-        "ഞാൻ എങ്ങനെ വിൽപ്പനക്കാരനാകും?",
-        "ഏതൊക്കെ ഉൽപ്പന്നങ്ങൾ ലഭ്യമാണ്?",
+        "ഞാൻ എങ്ങനെ വിൽപ്പനക്കാരനാകും",
+        "ഏതൊക്കെ ഉൽപ്പന്നങ്ങൾ ലഭ്യമാണ്",
         "ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ",
       ],
       responses: {
@@ -78,9 +96,63 @@ export function Chatbot() {
     }]);
   };
 
+  const { user } = useAuth();
+  const [sessionId, setSessionId] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  // Generate a sesssion ID for this chat session
-  const [sessionId] = useState(() => 'user-' + Math.random().toString(36).substr(2, 9));
+
+  // Initialize Session ID (User ID or Persistent Anonymous ID)
+  useEffect(() => {
+    if (user?.id) {
+      setSessionId(user.id);
+    } else {
+      let storedId = localStorage.getItem('chat_anon_id');
+      if (!storedId) {
+        storedId = 'anon-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('chat_anon_id', storedId);
+      }
+      setSessionId(storedId);
+    }
+  }, [user]);
+
+  // Voice Toggle
+  const toggleVoiceMode = async () => {
+    if (isVoiceActive) {
+      // Stop
+      if (voiceClientRef.current) {
+        await voiceClientRef.current.disconnect();
+        voiceClientRef.current = null;
+      }
+      setIsVoiceActive(false);
+    } else {
+      // Start
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey) {
+        alert("Gemini API Key missing (VITE_GEMINI_API_KEY)");
+        return;
+      }
+
+      try {
+        const client = new GeminiLiveClient(apiKey);
+        await client.connect();
+        await client.startAudioStream();
+        voiceClientRef.current = client;
+        setIsVoiceActive(true);
+      } catch (err) {
+        console.error("Failed to start voice:", err);
+        alert("Failed to start voice mode. Check console.");
+        setIsVoiceActive(false);
+      }
+    }
+  };
+
+  // Cleanup voice on unmount
+  useEffect(() => {
+    return () => {
+      if (voiceClientRef.current) {
+        voiceClientRef.current.disconnect();
+      }
+    };
+  }, []);
 
   const handleSendMessage = async (text: string) => {
     if (!text.trim()) return;
@@ -106,7 +178,10 @@ export function Chatbot() {
         body: JSON.stringify({
           message: text,
           user_id: sessionId,
-          context: { language }
+          context: {
+            language,
+            isAuthenticated: !!user
+          }
         }),
       });
 
@@ -126,7 +201,6 @@ export function Chatbot() {
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
       console.error('Chat Error:', error);
-      // Fallback to local logic if API fails
       const botMessage: Message = {
         id: messages.length + 2,
         text: t.responses.default,
@@ -186,7 +260,15 @@ export function Chatbot() {
                 </div>
               </div>
             ))}
-            {isTyping && (
+            {isVoiceActive && (
+              <div className="flex justify-center py-4">
+                <div className="flex flex-col items-center gap-2 text-muted-foreground animate-pulse">
+                  <Mic className="w-8 h-8 text-red-500" />
+                  <span className="text-xs">Live Voice Active</span>
+                </div>
+              </div>
+            )}
+            {isTyping && !isVoiceActive && (
               <div className="flex justify-start">
                 <div className="bg-muted text-foreground p-3 rounded-lg">
                   <div className="flex gap-1">
@@ -200,13 +282,14 @@ export function Chatbot() {
           </div>
 
           {/* Quick Replies */}
-          {messages.length <= 2 && (
+          {messages.length <= 2 && !isVoiceActive && (
             <div className="px-4 pb-2">
               <p className="text-xs text-muted-foreground mb-2">{t.quickQuestions}</p>
               <div className="flex flex-wrap gap-2">
                 {t.quickReplies.map((reply, index) => (
                   <button
                     key={index}
+                    type="button"
                     onClick={() => handleSendMessage(reply)}
                     className="text-xs bg-muted hover:bg-muted/80 px-3 py-1.5 rounded-full transition-colors"
                   >
@@ -226,13 +309,24 @@ export function Chatbot() {
               }}
               className="flex gap-2"
             >
+              <Button
+                type="button"
+                variant={isVoiceActive ? "destructive" : "outline"}
+                size="icon"
+                onClick={toggleVoiceMode}
+                title={isVoiceActive ? "Stop Voice" : "Start Voice (Gemini Live)"}
+              >
+                {isVoiceActive ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+              </Button>
+
               <Input
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder={t.placeholder}
+                placeholder={isVoiceActive ? "Listening (Voice Mode)..." : t.placeholder}
                 className="flex-1"
+                disabled={isVoiceActive}
               />
-              <Button type="submit" size="icon">
+              <Button type="submit" size="icon" disabled={isVoiceActive}>
                 <Send className="w-4 h-4" />
               </Button>
             </form>

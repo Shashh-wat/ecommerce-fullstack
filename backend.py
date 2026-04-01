@@ -1,10 +1,20 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 import uuid
 from datetime import datetime
 
-app = FastAPI()
+app = FastAPI(title="E-Commerce Backend")
+
+# ============ CORS — allow browser calls from file:// and localhost ============
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ============ PRODUCT CATALOG ============
 PRODUCTS = [
@@ -19,7 +29,14 @@ PRODUCTS = [
 CARTS = {}
 ORDERS = {}
 USERS = {
-    "user-123": {"id": "user-123", "name": "John Doe", "email": "john@example.com", "address": "123 Main St"}
+    "user-123": {"id": "user-123", "name": "John Doe", "email": "john@example.com", "address": "123 Main St"},
+}
+
+# ============ DEMO ACCOUNTS (pre-seeded, no Supabase needed) ============
+DEMO_ACCOUNTS = {
+    "buyer@demo.com":  {"id": "buyer-demo-001",  "name": "Demo Buyer",  "role": "buyer",  "password": "DemoPass123!"},
+    "vendor@demo.com": {"id": "vendor-demo-001", "name": "Demo Vendor", "role": "vendor", "password": "DemoPass123!"},
+    "john@example.com":{"id": "user-123",        "name": "John Doe",    "role": "buyer",  "password": "password"},
 }
 
 # ============ REQUEST MODELS ============
@@ -170,6 +187,84 @@ def _start_delivery(order_id: str):
 @app.get("/health")
 def health():
     return {"status": "ok", "service": "ecommerce-backend"}
+
+# ============ AUTH ENDPOINTS (Demo / Mock) ============
+
+class AuthRequest(BaseModel):
+    email: str
+    password: str
+    name: Optional[str] = None
+    business_name: Optional[str] = None
+
+def _make_token(user_id: str) -> str:
+    """Return a simple mock bearer token for demo purposes."""
+    return f"demo-token-{user_id}-{uuid.uuid4().hex[:8]}"
+
+@app.post("/auth/buyer/login")
+def buyer_login(req: AuthRequest):
+    acct = DEMO_ACCOUNTS.get(req.email)
+    if not acct:
+        raise HTTPException(status_code=401, detail="Account not found. Please register first.")
+    if acct["password"] != req.password:
+        raise HTTPException(status_code=401, detail="Incorrect password.")
+    return {
+        "access_token": _make_token(acct["id"]),
+        "token_type": "bearer",
+        "user_id": acct["id"],
+        "name": acct["name"],
+        "email": req.email,
+        "role": acct["role"],
+    }
+
+@app.post("/auth/buyer/register")
+def buyer_register(req: AuthRequest):
+    if req.email in DEMO_ACCOUNTS:
+        # Already exists — just log them in
+        return buyer_login(req)
+    # Auto-create account
+    new_id = f"user-{uuid.uuid4().hex[:8]}"
+    DEMO_ACCOUNTS[req.email] = {"id": new_id, "name": req.name or req.email, "role": "buyer", "password": req.password}
+    return {
+        "access_token": _make_token(new_id),
+        "token_type": "bearer",
+        "user_id": new_id,
+        "name": req.name or req.email,
+        "email": req.email,
+        "role": "buyer",
+    }
+
+@app.post("/auth/vendor/login")
+def vendor_login(req: AuthRequest):
+    acct = DEMO_ACCOUNTS.get(req.email)
+    if not acct:
+        raise HTTPException(status_code=401, detail="Account not found. Please register first.")
+    if acct["password"] != req.password:
+        raise HTTPException(status_code=401, detail="Incorrect password.")
+    return {
+        "access_token": _make_token(acct["id"]),
+        "token_type": "bearer",
+        "user_id": acct["id"],
+        "name": acct["name"],
+        "email": req.email,
+        "role": acct["role"],
+        "business_name": req.business_name or "Demo Store",
+    }
+
+@app.post("/auth/vendor/register")
+def vendor_register(req: AuthRequest):
+    if req.email in DEMO_ACCOUNTS:
+        return vendor_login(req)
+    new_id = f"vendor-{uuid.uuid4().hex[:8]}"
+    DEMO_ACCOUNTS[req.email] = {"id": new_id, "name": req.name or req.email, "role": "vendor", "password": req.password}
+    return {
+        "access_token": _make_token(new_id),
+        "token_type": "bearer",
+        "user_id": new_id,
+        "name": req.name or req.email,
+        "email": req.email,
+        "role": "vendor",
+        "business_name": req.business_name or "My Store",
+    }
 
 if __name__ == "__main__":
     import uvicorn

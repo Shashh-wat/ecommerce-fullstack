@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0f172a;
+    overscroll-behavior-y: contain;
+}
+
+/* Hide scrollbars for cleaner mobile look */
+::-webkit-scrollbar {
+    display: none;
+}
