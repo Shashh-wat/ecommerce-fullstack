@@ -30,5 +30,5 @@ EXPOSE 8500
 # Give execute permissions to launcher
 RUN chmod +x launch_all.py
 
-# Boot sequence
-CMD ["python", "launch_all.py"]
+# Boot sequence (Memory Optimized Monolith)
+CMD ["python", "monolith.py"]
