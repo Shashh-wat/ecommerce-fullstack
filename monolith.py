@@ -26,7 +26,7 @@ load_dotenv(os.path.join(UCP_DIR, ".env"))
 
 # Redefine internal service URLs to target the monolith itself (localhost)
 # This prevents services from trying to hit ports 8001, 8200, 8400 which aren't open in Cloud.
-MY_PORT = os.environ.get("PORT", "8500")
+MY_PORT = os.environ.get("PORT", "7860")
 os.environ["UCP_SERVER_URL"] = f"http://localhost:{MY_PORT}/api/backend"
 os.environ["HUB_URL"] = f"http://localhost:{MY_PORT}/api/hub"
 os.environ["BOT_FACTORY_URL"] = f"http://localhost:{MY_PORT}/api/factory"
@@ -116,6 +116,6 @@ async def startup_event():
     start_telegram_bot()
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8500))
+    port = int(os.environ.get("PORT", 7860))
     logger.info(f"🔥 Monolith ignition on port {port}")
     uvicorn.run(master_app, host="0.0.0.0", port=port)

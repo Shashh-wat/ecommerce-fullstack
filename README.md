@@ -1,3 +1,13 @@
+---
+title: Gaura E-Commerce Platform
+emoji: 🛍️
+colorFrom: indigo
+colorTo: blue
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # MCP E-Commerce Chat System - Complete Documentation
 
 ## Overview
