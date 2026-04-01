@@ -36,21 +36,30 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.pool import StaticPool
 
 # Database configuration
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/ecommerce")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-try:
-    connect_args = {"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
-    engine = create_engine(
-        DATABASE_URL,
+def create_platform_engine(url):
+    if not url:
+        url = "sqlite:///./ecommerce.db"
+    connect_args = {"check_same_thread": False} if "sqlite" in url else {}
+    return create_engine(
+        url,
         connect_args=connect_args,
-        poolclass=StaticPool if "sqlite" in DATABASE_URL else None,
+        poolclass=StaticPool if "sqlite" in url else None,
         echo=False
     )
-    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+try:
+    # Attempt Primary Connection
+    engine = create_platform_engine(DATABASE_URL)
+    with engine.connect() as conn:
+        print("✅ Primary Database connected")
 except Exception as e:
-    print(f"⚠️  Database connection failed: {e}")
-    engine = None
-    SessionLocal = None
+    print(f"⚠️ Primary Database failed ({e}). Falling back to local SQLite.")
+    DATABASE_URL = "sqlite:///./ecommerce.db"
+    engine = create_platform_engine(DATABASE_URL)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 import asyncio
 from ucp_server.shopify_client import search_products_in_shopify, get_product_in_shopify

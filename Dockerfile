@@ -13,7 +13,7 @@ COPY telegram_ucp_project/gaura_platform/requirements.txt ./req2.txt
 RUN pip install --no-cache-dir -r req1.txt && pip install --no-cache-dir -r req2.txt
 
 # Some core MCP or specific telethon/asyncio libraries in case they aren't fully listed
-RUN pip install "fastapi[all]" mcp telethon python-dotenv supabase google-generativeai openai httpx
+RUN pip install "fastapi[all]" mcp telethon python-dotenv supabase google-generativeai openai httpx psycopg2-binary
 
 # Copy the entire codebase into the container
 COPY . .
